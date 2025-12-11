@@ -6,14 +6,14 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import LanguageSwitcher from './languageSwitcher'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Главная', href: '/' },
   { name: 'Фотогалерея', href: '/gallery' },
-  // { name: 'Отзывы', href: '/reviews' },
 ]
 
-const logotypeUrl = "/Gan_Eden_Logotype.png"
+const logotypeUrl = "/Gan_eden_logotype.png"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -33,7 +33,10 @@ function _DesktopMenu({ setMobileMenuOpen, pathname }) {
       <div className="flex flex-1">
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className={`text-sm/6 font-semibold text-gray-900 hover:underline ${pathname === item.href ? 'underline' : ''}`}>
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`text-sm/6 font-semibold text-gray-900 hover:underline ${pathname === item.href ? 'underline' : ''}`}>
               {item.name}
             </Link>
           ))}
@@ -51,8 +54,10 @@ function _DesktopMenu({ setMobileMenuOpen, pathname }) {
       </div>
       <Link href="/" className="-m-1.5 p-1.5">
         <span className="sr-only">Gan&Eden</span>
-        <img
-          alt="Gan&Eden logotype"
+        <Image
+          width={200}
+          height={70}
+          alt="Gan Eden logotype"
           src={logotypeUrl}
           className="h-20 w-auto"
         />
@@ -82,19 +87,30 @@ function _MobileMenu({ mobileMenuOpen, setMobileMenuOpen, pathname }) {
               <XMarkIcon aria-hidden="true" className="size-6" />
             </button>
           </div>
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Gan&Eden</span>
-            <img
-              alt="Gan&Eden logotype"
+          <Link
+            href="/"
+            className="-m-1.5 p-1.5"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <span className="sr-only">Gan Eden</span>
+            <Image
+              width={200}
+              height={70}
+              alt="Gan Eden logotype"
               src={logotypeUrl}
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
           <div className="flex flex-1 justify-end"></div>
         </div>
         <div className="mt-6 space-y-2">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className={`-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-100 ${pathname === item.href ? 'bg-gray-100' : ''}`}>
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-100 ${pathname === item.href ? 'bg-gray-100' : ''}`}
+            >
               {item.name}
             </Link>
           ))}
