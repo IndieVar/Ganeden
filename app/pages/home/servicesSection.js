@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { animationLeft, animationUp } from "@/src/motion"
+import Image from "next/image"
 
 const features = [
     {
@@ -44,8 +45,10 @@ export default function ServicesSection() {
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),green)] opacity-20" />
                 <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl ring-1 shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
-                    <img
-                        alt=""
+                    <Image
+                        width={200}
+                        height={70}
+                        alt="Gan Eden logotype"
                         src="/Gan_Eden_logotype.png"
                         className="mx-auto h-16"
                     />

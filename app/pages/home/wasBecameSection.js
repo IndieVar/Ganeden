@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import { MCallButton } from "@/app/components/callButton"
 import { animationRight } from "@/src/motion";
 import Link from "next/link";
+import ImageZoom from "@/app/components/imageZoom";
 
 export default function WasBecameSection() {
   const imageUrl = "/was_become.jpg"
@@ -13,9 +14,18 @@ export default function WasBecameSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="relative bg-white py-8">
-      <div className="relative mx-auto max-w-2xl lg:max-w-7xl pb-12 lg:px-8 lg:py-40">
-        <div className="px-6 md:px-0 lg:ml-auto lg:w-1/2 lg:pr-0 lg:pl-24 xl:pl-32">
+      className="relative bg-white py-8 grid grid-cols-2"
+    >
+      <div
+        className="row-start-2 lg:row-auto col-span-full lg:col-span-1 lg:col-start-1 lg:col-end-2 relative h-full overflow-hidden mx-auto max-w-2xl lg:max-w-full lg:w-auto">
+        <ImageZoom
+          src={imageUrl}
+          alt="Gan Eden before and after"
+          className="size-full object-cover rounded-2xl lg:rounded-none lg:rounded-r-2xl"
+        />
+      </div>
+      <div className="col-span-full lg:col-span-1 lg:col-start-2 lg:col-end-2 relative mx-auto max-w-2xl lg:max-w-7xl pb-12 lg:px-8 lg:py-40  ">
+        <div className="px-6 md:px-0 lg:w-full lg:pr-0 lg:pl-6">
           <motion.h3
             custom={1}
             variants={animationRight}
@@ -60,14 +70,7 @@ export default function WasBecameSection() {
           </motion.div>
         </div>
       </div>
-      <div
-        className="relative h-full overflow-hidden lg:absolute lg:left-0 lg:top-0 px-6 md:px-0 mx-auto max-w-2xl lg:max-w-full lg:w-auto">
-        <img
-          alt="Gan Eden before and after"
-          src={imageUrl}
-          className="size-full object-cover rounded-2xl lg:rounded-none lg:rounded-r-2xl"
-        />
-      </div>
+
     </motion.section>
   )
 }

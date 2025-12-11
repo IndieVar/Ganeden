@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { animationLeft } from "@/src/motion";
 import { MCallButton } from "@/app/components/callButton"
+import ImageZoom from "@/app/components/imageZoom";
 
 export default function ReviewsSection() {
     const imageUrl = "/Gan_eden_reviews.jpg"
@@ -61,12 +62,8 @@ export default function ReviewsSection() {
                         </figure>
                     </div>
                     <div className=" w-full lg:-my-20 -mx-12">
-                        <div className="relative aspect-square h-full after:absolute after:right-0 after:inset-0 after:rounded-2xl after:inset-ring after:inset-ring-white/15 lg:-mx-10 xl:mx-0">
-                            <img
-                                alt="Gan Eden Reviews"
-                                src={imageUrl}
-                                className="absolute inset-0 size-full rounded-2xl object-cover shadow-2xl"
-                            />
+                        <div className="relative aspect-square h-full lg:-mx-10 xl:mx-0 rounded-2xl shadow-2xl">
+                            <ImageZoom src={imageUrl} alt="Gan Eden Reviews" rounded="rounded-2xl"/>
                         </div>
                     </div>
                 </div>
