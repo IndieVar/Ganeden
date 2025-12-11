@@ -65,7 +65,7 @@ export default function AboutSection() {
                             key={card.name}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            custom={4} variants={index % 2 == 0 ? animationLeft : animationRight}
+                            custom={5} variants={index % 2 == 0 ? animationLeft : animationRight}
                             className="flex gap-x-4 rounded-xl bg-white/30 p-6 ring-1 ring-gray-900/5 backdrop-blur-sm"
                         >
 
