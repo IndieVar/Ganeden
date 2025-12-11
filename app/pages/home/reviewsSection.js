@@ -1,10 +1,18 @@
-import CallButton from "@/app/components/callButton"
+"use client"
+
+import { motion } from "motion/react"
+import { animationLeft } from "@/src/motion";
+import { MCallButton } from "@/app/components/callButton"
 
 export default function ReviewsSection() {
     const imageUrl = "/Gan_eden_reviews.jpg"
 
     return (
-        <div className="relative isolate overflow-hidden bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32">
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative isolate overflow-hidden bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32">
             <div className="relative pb-20 sm:pb-24 xl:pb-0">
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),green)] opacity-20" />
                 <div className="mx-auto md:mx-18 lg:mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
@@ -24,33 +32,38 @@ export default function ReviewsSection() {
                                 <use x={86} href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" />
                             </svg>
                             <blockquote className="">
-                                <h5 className="text-base/7 font-semibold text-green-600">Gan&Eden Отзывы</h5>
-                                <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900">
+                                <motion.h5
+                                    custom={1} variants={animationLeft}
+                                    className="text-base/7 font-semibold text-green-600">
+                                    Gan&Eden Отзывы
+                                </motion.h5>
+                                <motion.p
+                                    custom={2} variants={animationLeft}
+                                    className="mt-2 text-4xl font-semibold tracking-tight text-gray-900">
                                     Реальные рекомендации и оценки качества наших услуг
-                                </p>
-                                <p className="mt-2 text-base/7 text-gray-700">
+                                </motion.p>
+                                <motion.p
+                                    custom={3} variants={animationLeft}
+                                    className="mt-2 text-base/7 text-gray-700">
                                     Хотите, чтобы ваш сад всегда выглядел ухоженно и красиво — без лишних хлопот?
                                     Наши клиенты уже оценили профессионализм, пунктуальность и качество работы.
-                                </p>
+                                </motion.p>
                             </blockquote>
                             <figcaption className="mt-8 text-base">
-                                <div className="mt-8 flex justify-start gap-4">
-                                    <CallButton />
-                                    {/* <a
-                                        href="/reviews"
-                                        className="inline-flex rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
-                                        {' '}
-                                        Открыть отзывы{' '}
-                                    </a> */}
-                                </div>
+                                <motion.div
+                                    custom={4} variants={animationLeft}
+                                    className="mt-8 flex justify-start gap-4">
+                                    <MCallButton
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }} />
+                                </motion.div>
                             </figcaption>
                         </figure>
                     </div>
                     <div className=" w-full lg:-my-20 -mx-12">
                         <div className="relative aspect-square h-full after:absolute after:right-0 after:inset-0 after:rounded-2xl after:inset-ring after:inset-ring-white/15 lg:-mx-10 xl:mx-0">
                             <img
-                                alt=""
+                                alt="Gan Eden Reviews"
                                 src={imageUrl}
                                 className="absolute inset-0 size-full rounded-2xl object-cover shadow-2xl"
                             />
@@ -58,6 +71,6 @@ export default function ReviewsSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.section>
     )
 }

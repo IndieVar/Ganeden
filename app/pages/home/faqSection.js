@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { animationUp } from "@/src/motion";
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
@@ -51,18 +55,30 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <div className="bg-white">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pt-10 lg:pt-24 pb-10 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-7xl">
-          <h6 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center">
+          <motion.h6
+            custom={1} variants={animationUp}
+            className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center">
             Часто задаваемые вопросы
-          </h6>
+          </motion.h6>
           <dl className="mt-16 divide-y divide-gray-900/10">
-            {faqs.map((faq) => (
-              <Disclosure key={faq.question} as="div" className="py-6 first:pt-0 last:pb-0">
+            {faqs.map((faq, index) => (
+              <Disclosure
+                key={faq.question} as="div" className="py-6 first:pt-0 last:border-b hover:border-gray-600 group">
                 <dt>
-                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
-                    <span className="text-base/7 font-semibold">{faq.question}</span>
+                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900 hover:cursor-pointer">
+                    <motion.span
+                      custom={index + 2}
+                      variants={animationUp}
+                      className="text-base/7 font-semibold">
+                      {faq.question}
+                    </motion.span>
                     <span className="ml-6 flex h-7 items-center">
                       <PlusSmallIcon aria-hidden="true" className="size-6 group-data-open:hidden" />
                       <MinusSmallIcon aria-hidden="true" className="size-6 group-not-data-open:hidden" />
@@ -77,6 +93,6 @@ export default function FAQSection() {
           </dl>
         </div>
       </div>
-    </div>
+    </motion.section>
   )
 }

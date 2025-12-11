@@ -5,6 +5,7 @@ import { BsThermometerSun } from "react-icons/bs";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { FaTreeCity } from "react-icons/fa6";
 import { MdOutlineTaskAlt } from "react-icons/md";
+import { animationUp, animationLeft, animationRight } from "@/src/motion";
 
 const cards = [
     {
@@ -32,24 +33,39 @@ const cards = [
 export default function AboutSection() {
 
     return (
-        <div className="relative isolate overflow-hidden bg-white py-24 my-20">
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative isolate overflow-hidden bg-white py-24 my-20">
             <_BackgroundEffect />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className='flex justify-center text-center flex-col items-center'>
                     <div className="   mx-auto max-w-2xl lg:mx-0">
-                        <span className="text-base/7 font-semibold text-green-600">Почему выбирают нас</span>
-                        <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Садовник с большим опытом работы!</h2>
-                        <p className="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl/8">
+                        <motion.span
+                            custom={1} variants={animationUp}
+                            className="text-base/7 font-semibold text-green-600">
+                            Почему выбирают нас
+                        </motion.span>
+                        <motion.h2
+                            custom={2} variants={animationUp}
+                            className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+                            Садовник с большим опытом работы!
+                        </motion.h2>
+                        <motion.p
+                            custom={3} variants={animationUp}
+                            className="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl/8">
                             Профессиональный уход за вашим садом круглый год.
-                        </p>
+                        </motion.p>
                     </div>
                 </div>
                 <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-12">
-                    {cards.map((card) => (
+                    {cards.map((card, index) => (
                         <motion.div
                             key={card.name}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
+                            custom={4} variants={index % 2 == 0 ? animationLeft : animationRight}
                             className="flex gap-x-4 rounded-xl bg-white/30 p-6 ring-1 ring-gray-900/5 backdrop-blur-sm"
                         >
 
@@ -62,7 +78,7 @@ export default function AboutSection() {
                     ))}
                 </div>
             </div>
-        </div>
+        </motion.section>
     )
 }
 

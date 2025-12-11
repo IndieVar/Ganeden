@@ -1,7 +1,9 @@
-
+"use client";
+import { motion } from 'framer-motion'
 import { FaMapPin, FaRegCalendarCheck } from 'react-icons/fa'
 import { IoDiamondOutline } from 'react-icons/io5'
 import { BiHappyHeartEyes } from 'react-icons/bi'
+import { animationLeft } from '@/src/motion';
 
 const features = [
   {
@@ -30,31 +32,43 @@ const heroImageUrl = "/Gan_eden_hero_circle.png"
 export default function HeroSection() {
 
   return (
-    <div className="relative isolate overflow-hidden bg-white py-6">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="relative isolate overflow-hidden bg-white py-6">
       <_BackgroundEffect />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-2 lg:pr-8">
-            <div className="lg:max-w-lg">
-              <h1 className="text-base/7 font-semibold text-green-600">Садовник в Ашдоде</h1>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+            <motion.div className="lg:max-w-lg">
+              <motion.h1
+                custom={1} variants={animationLeft}
+                className="text-base/7 font-semibold text-green-600">Садовник в Ашдоде</motion.h1>
+              <motion.p
+                custom={2} variants={animationLeft}
+                className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                 Ваш сад, как на картинке
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-700">
+              </motion.p>
+              <motion.p
+                custom={3} variants={animationLeft}
+                className="mt-6 text-lg/8 text-gray-700">
                 В GAN&EDEN мы не просто создаём ландшафт — мы создаём атмосферу, в которой хочется жить.
                 У нас — многолетний опыт, более 1000 довольных клиентов и работа по всей стране.
-              </p>
+              </motion.p>
               <dl className="mt-10 max-w-xl space-y-7 text-base/7 text-gray-600 lg:max-w-none">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
+                {features.map((feature, index) => (
+                  <motion.div
+                    custom={index + 4} variants={animationLeft}
+                    key={feature.name} className="relative pl-9">
                     <dt className="inline font-semibold text-gray-900">
                       <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
                     </dt>
                     <dd className="inline">{feature.description}</dd>
-                  </div>
+                  </motion.div>
                 ))}
               </dl>
-            </div>
+            </motion.div>
           </div>
           <img
             alt="Gan&Eden hero image"
@@ -63,7 +77,7 @@ export default function HeroSection() {
           />
         </div>
       </div>
-    </div>
+    </motion.section>
   )
 }
 
