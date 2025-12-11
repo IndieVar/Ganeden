@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "motion/react"
 import { BsThermometerSun } from "react-icons/bs";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { FaTreeCity } from "react-icons/fa6";
@@ -41,18 +44,21 @@ export default function AboutSection() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-8">
+                <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-12">
                     {cards.map((card) => (
-                        <div
+                        <motion.div
                             key={card.name}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
                             className="flex gap-x-4 rounded-xl bg-white/30 p-6 ring-1 ring-gray-900/5 backdrop-blur-sm"
                         >
+
                             <card.icon aria-hidden="true" className="h-7 w-5 flex-none text-indigo-600" />
                             <div className="text-base/7">
                                 <p className="font-semibold text-gray-900">{card.name}</p>
                                 <p className="mt-2 text-gray-700">{card.description}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

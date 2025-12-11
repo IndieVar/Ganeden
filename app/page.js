@@ -3,6 +3,7 @@ import HeroSection from "./pages/home/heroSection";
 import ServicesSection from "./pages/home/servicesSection";
 import WasBecameSection from "./pages/home/wasBecameSection";
 import AboutSection from "./pages/home/aboutSection";
+import FAQSection from "./pages/home/faqSection";
 
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <WasBecameSection />
       <ServicesSection />
       <ReviewsSection />
+      <FAQSection />
     </main>
   )
 }

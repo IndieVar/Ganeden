@@ -36,13 +36,13 @@ export default function ReviewsSection() {
                             <figcaption className="mt-8 text-base">
                                 <div className="mt-8 flex justify-start gap-4">
                                     <CallButton />
-                                    <a
+                                    {/* <a
                                         href="/reviews"
                                         className="inline-flex rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                     >
                                         {' '}
                                         Открыть отзывы{' '}
-                                    </a>
+                                    </a> */}
                                 </div>
                             </figcaption>
                         </figure>

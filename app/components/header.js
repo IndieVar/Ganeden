@@ -10,7 +10,7 @@ import Link from 'next/link'
 const navigation = [
   { name: 'Главная', href: '/' },
   { name: 'Фотогалерея', href: '/gallery' },
-  { name: 'Отзывы', href: '/reviews' },
+  // { name: 'Отзывы', href: '/reviews' },
 ]
 
 const logotypeUrl = "/Gan_Eden_Logotype.png"

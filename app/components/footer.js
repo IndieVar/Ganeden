@@ -1,12 +1,20 @@
 import Link from "next/link";
-import { FaFacebook } from "react-icons/fa6";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa6";
 
 const navigation = [
+  {
+    name: 'WhatsApp',
+    href: 'whatsapp://send?phone=972504794997',
+    icon: FaWhatsapp,
+    style: 'size-7 hover:text-green-700',
+  },
   {
     name: 'Facebook',
     href: 'https://www.facebook.com/ganedenash',
     icon: FaFacebook,
+    style: 'size-6 hover:text-blue-700',
   },
+  
 ]
 
 export default function Footer() {
@@ -15,9 +23,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center gap-x-6 md:order-2">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-700">
+            <Link key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 ">
               <span className="sr-only">{item.name}</span>
-              <item.icon aria-hidden="true" className="size-6" />
+              <item.icon aria-hidden="true" className={item.style} />
             </Link>
           ))}
         </div>
