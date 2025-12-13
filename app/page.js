@@ -8,7 +8,7 @@ import FAQSection from "./pages/home/faqSection";
 
 export default function HomePage() {
   return (
-    <main className="relative bg-white pb-20">
+    <main className="relative bg-white pb-20 overflow-hidden">
       <HeroSection />
       <AboutSection />
       <WasBecameSection />

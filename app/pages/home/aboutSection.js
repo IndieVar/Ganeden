@@ -6,6 +6,7 @@ import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { FaTreeCity } from "react-icons/fa6";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { animationUp, animationLeft, animationRight } from "@/src/motion";
+import Image from "next/image";
 
 const cards = [
     {
@@ -37,7 +38,7 @@ export default function AboutSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative isolate overflow-hidden bg-white py-24 my-20">
+            className="relative isolate overflow-hidden bg-white py-24 mb-12 lg:mb-20">
             <_BackgroundEffect />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className='flex justify-center text-center flex-col items-center'>
@@ -87,8 +88,10 @@ function _BackgroundEffect() {
 
     return (
         <>
-            <img
-                alt=""
+            <Image
+                width={1000}
+                height={1000}
+                alt="Gan&Eden background image"
                 src={imageUrl}
                 className="absolute inset-0 -z-10 size-full object-cover object-right opacity-15 md:object-center" />
             <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">

@@ -57,9 +57,8 @@ function _DesktopMenu({ setMobileMenuOpen, pathname }) {
         <Image
           width={200}
           height={70}
-          alt="Gan Eden logotype"
           src={logotypeUrl}
-          className="h-20 w-auto"
+          alt="Gan Eden logotype"
         />
       </Link>
       <div className="flex flex-1 justify-end">
@@ -75,7 +74,7 @@ function _MobileMenu({ mobileMenuOpen, setMobileMenuOpen, pathname }) {
   return (
     <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
       <div className="fixed inset-0 z-10" />
-      <DialogPanel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-6 py-6">
+      <DialogPanel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-2 py-2">
         <div className="flex items-center justify-between">
           <div className="flex flex-1">
             <button
@@ -96,14 +95,13 @@ function _MobileMenu({ mobileMenuOpen, setMobileMenuOpen, pathname }) {
             <Image
               width={200}
               height={70}
-              alt="Gan Eden logotype"
               src={logotypeUrl}
-              className="h-14 w-auto"
+              alt="Gan Eden logotype"
             />
           </Link>
           <div className="flex flex-1 justify-end"></div>
         </div>
-        <div className="mt-6 space-y-2">
+        <div className="mt-6 space-y-2 px-4">
           {navigation.map((item) => (
             <Link
               key={item.name}

@@ -13,11 +13,12 @@ export default function ReviewsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative isolate overflow-hidden bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32">
-            <div className="relative pb-20 sm:pb-24 xl:pb-0">
+            className="relative isolate overflow-hidden bg-white lg:py-20 mb-12 lg:mb-20">
+            <div className="relative py-12 lg:py-0 pb-20 sm:pb-24 xl:pb-0">
+                {/* Background effect */}
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),green)] opacity-20" />
                 <div className="mx-auto md:mx-18 lg:mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
-
+                {/*  */}
                     <div className="w-full max-w-2xl lg:max-w-xl lg:flex-auto lg:pr-18 lg:py-24">
                         <figure className="relative isolate pt-6 sm:pt-12">
                             <svg
@@ -63,7 +64,7 @@ export default function ReviewsSection() {
                     </div>
                     <div className=" w-full lg:-my-20 -mx-12">
                         <div className="relative aspect-square h-full lg:-mx-10 xl:mx-0 rounded-2xl shadow-2xl">
-                            <ImageZoom src={imageUrl} alt="Gan Eden Reviews" rounded="rounded-2xl"/>
+                            <ImageZoom src={imageUrl} alt="Gan Eden Reviews" rounded="rounded-2xl" />
                         </div>
                     </div>
                 </div>

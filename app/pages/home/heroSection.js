@@ -4,6 +4,7 @@ import { FaMapPin, FaRegCalendarCheck } from 'react-icons/fa'
 import { IoDiamondOutline } from 'react-icons/io5'
 import { BiHappyHeartEyes } from 'react-icons/bi'
 import { animationLeft } from '@/src/motion';
+import Image from 'next/image';
 
 const features = [
   {
@@ -27,7 +28,7 @@ const features = [
     icon: BiHappyHeartEyes,
   },
 ]
-const heroImageUrl = "/Gan_eden_hero_circle.png"
+const imageUrl = "/Gan_eden_hero_circle.png"
 
 export default function HeroSection() {
 
@@ -36,7 +37,7 @@ export default function HeroSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="relative isolate overflow-hidden bg-white py-6">
+      className="relative isolate overflow-hidden bg-white py-6 mb-12 lg:mb-20">
       <_BackgroundEffect />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -70,9 +71,11 @@ export default function HeroSection() {
               </dl>
             </motion.div>
           </div>
-          <img
+          <Image
+            width={500}
+            height={500}
             alt="Gan&Eden hero image"
-            src={heroImageUrl}
+            src={imageUrl}
             className="w-full object-cover max-w-none "
           />
         </div>

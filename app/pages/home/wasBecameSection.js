@@ -14,7 +14,7 @@ export default function WasBecameSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="relative bg-white py-8 grid grid-cols-2"
+      className="relative bg-white grid grid-cols-2 mb-12 lg:mb-20"
     >
       <div
         className="row-start-2 lg:row-auto col-span-full lg:col-span-1 lg:col-start-1 lg:col-end-2 relative h-full overflow-hidden mx-auto max-w-2xl lg:max-w-full lg:w-auto">

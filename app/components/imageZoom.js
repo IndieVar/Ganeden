@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 // Простой и аккуратный компонент для увеличения изображения по клику.
@@ -5,7 +6,7 @@ import React, { useEffect, useState } from "react";
 // - Нажатие вне изображения или на кнопку закрытия / клавиша Esc закрывает его.
 // - Использует Tailwind-классы для стилизации (включая плавную анимацию).
 
-export default function ImageZoom({ src, alt = "image", className = "", rounded = "" }) {
+export default function ImageZoom({ src, alt = "image", className = "", rounded = "", width = 800, height = 800 }) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -25,7 +26,9 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
                 aria-expanded={open}
                 aria-label={open ? "Закрыть изображение" : "Открыть изображение"}
             >
-                <img
+                <Image
+                    width={width}
+                    height={height}
                     src={src}
                     alt={alt}
                     className={`cursor-pointer transition-transform duration-300 transform  ${rounded}`}
@@ -57,16 +60,18 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
                             ✕
                         </button>
 
-                        <img
+                        <Image
+                            width={width}
+                            height={height}
                             src={src}
                             alt={alt}
-                            className="max-w-full max-h-[80vh] object-contain rounded-md shadow-2xl transition-transform duration-300"
+                            className="w-auto max-h-[90vh] object-contain rounded-md shadow-2xl transition-transform duration-300"
                         />
 
                         {/* Подпись (по желанию) */}
                         {/* {alt && (
-              <div className="mt-2 text-center text-sm text-white/90">{alt}</div>
-            )} */}
+                            <div className="mt-2 text-center text-sm text-white/90">{alt}</div>
+                        )} */}
                     </div>
                 </div>
             )}
