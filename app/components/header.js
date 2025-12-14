@@ -13,7 +13,7 @@ const navigation = [
   { name: 'Фотогалерея', href: '/gallery' },
 ]
 
-const logotypeUrl = "/Gan_eden_logotype.png"
+const logotypeUrl = "/Gan_eden_logotype_v2.png"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -56,9 +56,10 @@ function _DesktopMenu({ setMobileMenuOpen, pathname }) {
         <span className="sr-only">Gan&Eden</span>
         <Image
           width={200}
-          height={70}
+          height={80}
           src={logotypeUrl}
           alt="Gan Eden logotype"
+          className='h-auto w-full px-12 lg:px-6 py-4'
         />
       </Link>
       <div className="flex flex-1 justify-end">
@@ -97,6 +98,7 @@ function _MobileMenu({ mobileMenuOpen, setMobileMenuOpen, pathname }) {
               height={70}
               src={logotypeUrl}
               alt="Gan Eden logotype"
+              className='h-auto w-full px-12 lg:px-6 py-4'
             />
           </Link>
           <div className="flex flex-1 justify-end"></div>

@@ -49,7 +49,7 @@ export default function HeroSection() {
               <motion.p
                 custom={2} variants={animationLeft}
                 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                Ваш сад, как на картинке
+                Ваш сад в надёжных руках
               </motion.p>
               <motion.p
                 custom={3} variants={animationLeft}

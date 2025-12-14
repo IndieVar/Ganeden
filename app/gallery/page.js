@@ -60,7 +60,7 @@ export default function GalleryPage() {
           <h1 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
             Работа садовника в Израиле
           </h1>
-          <p className="mt-2 text-lg/8 text-gray-600">Ваш сад — в надёжных руках.</p>
+          <p className="mt-2 text-lg/8 text-gray-600">Ваш сад, как на картинке</p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post, index) => (

@@ -34,7 +34,7 @@ const features = [
 ]
 
 export default function ServicesSection() {
-    const imageUrl = "/Gan_eden_logotype.png"
+    const imageUrl = "/Gan_eden_logotype_v2.png"
 
     return (
         <>
@@ -48,10 +48,10 @@ export default function ServicesSection() {
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <Image
                         width={200}
-                        height={70}
+                        height={80}
                         alt="Gan Eden logotype"
                         src={imageUrl}
-                        className="mx-auto h-16"
+                        className='h-full w-auto mx-auto px-12 lg:px-6 py-2'
                     />
                     <div className="mx-auto w-full mt-10  lg:px-8">
                         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-5">
