@@ -49,7 +49,7 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
 
                     {/* Контейнер изображения — останавливаем всплытие клика */}
                     <div
-                        className="relative z-10 max-w-[90vw] max-h-[90vh] p-2"
+                        className="relative z-10 max-w-[100vw] max-h-full sm:h-full p-2"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <button
@@ -65,7 +65,7 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
                             height={height}
                             src={src}
                             alt={alt}
-                            className="w-auto max-h-[90vh] object-contain rounded-md shadow-2xl transition-transform duration-300"
+                            className="w-auto max-h-full sm:h-full object-contain rounded-md shadow-2xl transition-transform duration-300"
                         />
 
                         {/* Подпись (по желанию) */}
