@@ -5,32 +5,18 @@ import { IoDiamondOutline } from 'react-icons/io5'
 import { BiHappyHeartEyes } from 'react-icons/bi'
 import { animationLeft } from '@/src/motion';
 import Image from 'next/image';
-
-const features = [
-  {
-    name: 'Локация',
-    description: 'Мы в Ашдоде, говорим с вами на одном языке и всегда понимаем, чего вы хотите.',
-    icon: FaMapPin,
-  },
-  {
-    name: 'Календарь',
-    description: 'Без выходных, в любое удобное для вас время.',
-    icon: FaRegCalendarCheck,
-  },
-  {
-    name: 'Качество',
-    description: 'Качество, педантичность, пунктуальность — наш девиз.',
-    icon: IoDiamondOutline,
-  },
-  {
-    name: 'Счастье',
-    description: 'С нами у вас не болит голова ни по одному вопросу — мы всё сделаем в лучшем виде, чтобы ваш сад был как на картинке.',
-    icon: BiHappyHeartEyes,
-  },
-]
-const imageUrl = "/Gan_eden_hero_circle.png"
+import { useTranslations } from 'next-intl'
 
 export default function HeroSection() {
+  const t = useTranslations('hero')
+
+  const features = [
+    { name: t('feature1.name'), description: t('feature1.description'), icon: FaMapPin },
+    { name: t('feature2.name'), description: t('feature2.description'), icon: FaRegCalendarCheck },
+    { name: t('feature3.name'), description: t('feature3.description'), icon: IoDiamondOutline },
+    { name: t('feature4.name'), description: t('feature4.description'), icon: BiHappyHeartEyes },
+  ]
+const imageUrl = "/Gan_eden_hero_circle.png"
 
   return (
     <motion.section
@@ -45,17 +31,16 @@ export default function HeroSection() {
             <motion.div className="lg:max-w-lg">
               <motion.h1
                 custom={1} variants={animationLeft}
-                className="text-base/7 font-semibold text-green-600">Садовник в Ашдоде</motion.h1>
+                className="text-base/7 font-semibold text-green-600">{t('heading')}</motion.h1>
               <motion.p
                 custom={2} variants={animationLeft}
                 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                Ваш сад в надёжных руках
+                {t('title')}
               </motion.p>
               <motion.p
                 custom={3} variants={animationLeft}
                 className="mt-6 text-lg/8 text-gray-700">
-                В GAN&EDEN мы не просто создаём ландшафт — мы создаём атмосферу, в которой хочется жить.
-                У нас — многолетний опыт, более 1000 довольных клиентов и работа по всей стране.
+                {t('lead')}
               </motion.p>
               <dl className="mt-10 max-w-xl space-y-7 text-base/7 text-gray-600 lg:max-w-none">
                 {features.map((feature, index) => (

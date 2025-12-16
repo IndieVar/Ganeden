@@ -8,30 +8,15 @@ import { MdOutlineTaskAlt } from "react-icons/md";
 import { animationUp, animationLeft, animationRight } from "@/src/motion";
 import Image from "next/image";
 
-const cards = [
-    {
-        name: 'Опыт работы в климате Израиля',
-        description: 'Учитываем особенности почвы, сезонность и потребности местных растений.',
-        icon: BsThermometerSun,
-    },
-    {
-        name: 'Премиальный уровень сервиса',
-        description: 'Чистота, пунктуальность, прозрачные цены. Мы ценим ваше время и доверие.',
-        icon: MdOutlineWorkspacePremium,
-    },
-    {
-        name: 'Индивидуальный подход',
-        description: 'Подберём решения под ваш стиль, бюджет и задачи.',
-        icon: MdOutlineTaskAlt,
-    },
-    {
-        name: 'Работа с разными типами объектов',
-        description: '	Работаем с частными домами, квартирами, учреждениями и бизнесом.',
-        icon: FaTreeCity,
-    },
-]
+import { useTranslations } from 'next-intl'
 
 export default function AboutSection() {
+    const t = useTranslations('about')
+    const cards = [0,1,2,3].map(i => ({
+        name: t(`cards.${i}.name`),
+        description: t(`cards.${i}.description`),
+    }))
+    const icons = [BsThermometerSun, MdOutlineWorkspacePremium, MdOutlineTaskAlt, FaTreeCity]
 
     return (
         <motion.section
@@ -46,17 +31,17 @@ export default function AboutSection() {
                         <motion.span
                             custom={1} variants={animationUp}
                             className="text-base/7 font-semibold text-green-600">
-                            Почему выбирают нас
+                            {t('heading')}
                         </motion.span>
                         <motion.h2
                             custom={2} variants={animationUp}
                             className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                            Садовник с большим опытом работы!
+                            {t('title')}
                         </motion.h2>
                         <motion.p
                             custom={3} variants={animationUp}
                             className="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl/8">
-                            Профессиональный уход за вашим садом круглый год.
+                            {t('lead')}
                         </motion.p>
                     </div>
                 </div>
@@ -70,7 +55,10 @@ export default function AboutSection() {
                             className="flex gap-x-4 rounded-xl bg-white/30 p-6 ring-1 ring-gray-900/5 backdrop-blur-sm"
                         >
 
-                            <card.icon aria-hidden="true" className="h-7 w-5 flex-none text-indigo-600" />
+                            {(() => {
+                                const Icon = icons[index] || BsThermometerSun
+                                return <Icon aria-hidden="true" className="h-7 w-5 flex-none text-indigo-600" />
+                            })()}
                             <div className="text-base/7">
                                 <p className="font-semibold text-gray-900">{card.name}</p>
                                 <p className="mt-2 text-gray-700">{card.description}</p>

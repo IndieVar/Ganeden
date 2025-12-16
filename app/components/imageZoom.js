@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { useTranslations } from 'next-intl'
 
 // Простой и аккуратный компонент для увеличения изображения по клику.
 // - Нажатие на изображение открывает модальное увеличенное изображение.
@@ -8,6 +9,7 @@ import React, { useEffect, useState } from "react";
 
 export default function ImageZoom({ src, alt = "image", className = "", rounded = "", width = 800, height = 800 }) {
     const [open, setOpen] = useState(false);
+    const t = useTranslations()
 
     useEffect(() => {
         function onKey(e) {
@@ -24,7 +26,7 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
                 onClick={() => setOpen(true)}
                 className={`inline-block overflow-hidden focus:outline-none ${className}`}
                 aria-expanded={open}
-                aria-label={open ? "Закрыть изображение" : "Открыть изображение"}
+                aria-label={open ? t('image.close') : t('image.open')}
             >
                 <Image
                     width={width}
@@ -55,7 +57,7 @@ export default function ImageZoom({ src, alt = "image", className = "", rounded 
                         <button
                             onClick={() => setOpen(false)}
                             className="absolute -top-2 -right-2 z-20 rounded-full text-gray-900 cursor-pointer bg-white/70 hover:bg-white py-1 px-2 shadow-lg focus:outline-none"
-                            aria-label="Закрыть"
+                            aria-label={t('image.closeButton')}
                         >
                             ✕
                         </button>

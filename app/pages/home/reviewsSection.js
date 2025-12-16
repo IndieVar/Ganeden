@@ -5,8 +5,11 @@ import { animationLeft } from "@/src/motion";
 import { MCallButton } from "@/app/components/callButton"
 import ImageZoom from "@/app/components/imageZoom";
 
+import { useTranslations } from 'next-intl'
+
 export default function ReviewsSection() {
     const imageUrl = "/Gan_eden_reviews.jpg"
+    const t = useTranslations('reviews')
 
     return (
         <motion.section
@@ -19,7 +22,7 @@ export default function ReviewsSection() {
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),green)] opacity-20" />
                 <div className="mx-auto md:mx-18 lg:mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
                 {/*  */}
-                    <div className="w-full max-w-2xl lg:max-w-xl lg:flex-auto lg:pr-18 lg:py-24">
+                    <div className="w-full max-w-2xl lg:max-w-xl lg:flex-auto rtl:lg:pl-18 ltr:lg:pr-18 lg:py-24">
                         <figure className="relative isolate pt-6 sm:pt-12">
                             <svg
                                 fill="none"
@@ -37,18 +40,18 @@ export default function ReviewsSection() {
                                 <motion.h5
                                     custom={1} variants={animationLeft}
                                     className="text-base/7 font-semibold text-green-600">
-                                    Gan&Eden Отзывы
+                                    {t('heading')}
                                 </motion.h5>
                                 <motion.p
                                     custom={2} variants={animationLeft}
                                     className="mt-2 text-4xl font-semibold tracking-tight text-gray-900">
-                                    Реальные рекомендации и оценки качества наших услуг
+                                    {t('title')}
                                 </motion.p>
                                 <motion.p
                                     custom={3} variants={animationLeft}
                                     className="mt-2 text-base/7 text-gray-700">
-                                    Хотите, чтобы ваш сад всегда выглядел ухоженно и красиво — без лишних хлопот?
-                                    Наши клиенты уже оценили профессионализм, пунктуальность и качество работы.
+                                    {t('cta')}
+                                    {" "}{t('short')}
                                 </motion.p>
                             </blockquote>
                             <figcaption className="mt-8 text-base">
@@ -64,7 +67,7 @@ export default function ReviewsSection() {
                     </div>
                     <div className=" w-full lg:-my-20 -mx-12">
                         <div className="relative aspect-square h-full lg:-mx-10 xl:mx-0 rounded-2xl shadow-2xl">
-                            <ImageZoom src={imageUrl} alt="Gan Eden Reviews" rounded="rounded-2xl" />
+                            <ImageZoom src={imageUrl} alt={t('imageAlt')} rounded="rounded-2xl" />
                         </div>
                     </div>
                 </div>

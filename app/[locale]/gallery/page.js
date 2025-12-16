@@ -4,42 +4,40 @@ import { useState } from "react"
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-const posts = [
+import { useTranslations } from 'next-intl'
+
+const posts = (t) => [
   {
     id: 1,
-    title: 'Частный дом в Ашдоде — до и после:',
+    title: t('gallery.posts.0.title'),
     href: '#',
-    description:
-      `✔️ Полностью посадили оливковое дерево \n✔️ Оформили зону кустами и декоративными растениями \n✔️ Уложили камни для аккуратного и стильного вида \n✔️ Постелили синтетическую траву для максимального удобства и красоты`,
-    imageUrl:
-      '/was_become.jpg',
-    city: 'Ashdod',
+    description: t('gallery.posts.0.description'),
+    imageUrl: '/was_become.jpg',
+    city: t('gallery.posts.0.city'),
   },
   {
     id: 2,
-    title: 'Частный дом в Явне — до и после:',
+    title: t('gallery.posts.1.title'),
     href: '#',
-    description:
-      `✔️ Полностью посадили оливковое дерево \n✔️ Оформили зону кустами и декоративными растениями \n✔️ Уложили камни для аккуратного и стильного вида \n✔️ Постелили синтетическую траву для максимального удобства и красоты`,
-    imageUrl:
-      '/was_become.jpg',
-    city: 'Yavne',
+    description: t('gallery.posts.1.description'),
+    imageUrl: '/was_become.jpg',
+    city: t('gallery.posts.1.city'),
   },
   {
     id: 3,
-    title: 'Жилой дом в Ашкелоне — до и после:',
+    title: t('gallery.posts.2.title'),
     href: '#',
-    description:
-      `✔️ Полностью посадили оливковое дерево \n✔️ Оформили зону кустами и декоративными растениями \n✔️ Уложили камни для аккуратного и стильного вида \n✔️ Постелили синтетическую траву для максимального удобства и красоты`,
-    imageUrl:
-      '/Gan_eden_reviews.jpg',
-    city: 'Ashkelon',
+    description: t('gallery.posts.2.description'),
+    imageUrl: '/Gan_eden_reviews.jpg',
+    city: t('gallery.posts.2.city'),
   },
 ]
 
 export default function GalleryPage() {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const t = useTranslations()
+  const localizedPosts = posts(t)
   const onClickHandler = (index) => {
     setCurrentIndex(index);
     setOpen(true);
@@ -50,20 +48,20 @@ export default function GalleryPage() {
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        slides={posts.map((post) => ({ src: post.imageUrl }))}
+        slides={localizedPosts.map((post) => ({ src: post.imageUrl }))}
         index={currentIndex}
       />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span
-            className="text-base/7 font-semibold text-green-600">Фотогалерея</span>
+            className="text-base/7 font-semibold text-green-600">{t('gallery.heading')}</span>
           <h1 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
-            Работа садовника в Израиле
+            {t('gallery.title')}
           </h1>
-          <p className="mt-2 text-lg/8 text-gray-600">Ваш сад, как на картинке</p>
+          <p className="mt-2 text-lg/8 text-gray-600">{t('gallery.subtitle')}</p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post, index) => (
+          {localizedPosts.map((post, index) => (
             <article
               key={post.id}
               onClick={() => onClickHandler(index)}

@@ -5,9 +5,11 @@ import { MCallButton } from "@/app/components/callButton"
 import { animationRight } from "@/src/motion";
 import Link from "next/link";
 import ImageZoom from "@/app/components/imageZoom";
+import { useTranslations } from 'next-intl'
 
 export default function WasBecameSection() {
   const imageUrl = "/was_become.jpg"
+  const t = useTranslations('wasBecame')
 
   return (
     <motion.section
@@ -30,24 +32,25 @@ export default function WasBecameSection() {
             custom={1}
             variants={animationRight}
             className="text-base/7 font-semibold text-green-600">
-            Работа садовника в Ашдоде
+            {t('heading')}
           </motion.h3>
           <motion.p
             custom={2}
             variants={animationRight}
             className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            Было → Стало
+            {t('title')}
           </motion.p>
           <motion.p custom={3}
             variants={animationRight}
             className="mt-6 text-base/7 text-gray-700">
-            Иногда участок меняется не за месяцы — а за один визит профессионала.
-            Посмотрите, как преобразился этот сад: аккуратно подрезанные деревья, чистые клумбы, обновлённый газон и порядок в каждой детали.
+            {t('lead')}
+            {" "}
+            {t('description')}
           </motion.p>
           <motion.p custom={4}
             variants={animationRight}
             className="mt-6 text-base/7 text-gray-700">
-            Хотите так же? Наши садовники готовы взяться за работу и сделать ваш участок настоящим украшением дома.
+            {t('ask')}
           </motion.p>
           <motion.div
             custom={5}
@@ -63,8 +66,7 @@ export default function WasBecameSection() {
                 href="/gallery"
                 className="inline-flex rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                {' '}
-                Открыть фотогалерею{' '}
+                {t('cta')}
               </Link>
             </motion.div>
           </motion.div>

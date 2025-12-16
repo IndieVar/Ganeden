@@ -4,37 +4,18 @@ import { motion } from "motion/react"
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { animationLeft, animationUp } from "@/src/motion"
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
 
-const features = [
-    {
-        name: 'Регулярный уход за садом',
-        description: '• стрижка газона • удаление сорняков • формирование кустов и живых изгородей • уход за клумбами • сезонная обрезка растений • уборка территории',
-    },
-    {
-        name: 'Обрезка деревьев и кустарников',
-        description: '• санитарная обрезка • формирующая обрезка • омолаживание старых деревьев'
-    },
-    {
-        name: 'Монтаж и обслуживание капельного полива',
-        description: '• проектирование системы • установка оборудования • настройка таймеров • ремонт и оптимизация расхода воды',
-    },
-    {
-        name: 'Посадка растений и озеленение',
-        description: '	• подбор растений под климат и дизайн участка •	высадка кустарников, деревьев, цветов •	создание клумб и зеленых зон'
-    },
-    {
-        name: 'Уход за пальмами',
-        description: '	• очистка стволов •	обрезка старых листьев • профилактика вредителей'
-    },
-    {
-        name: 'Разовая генеральная уборка территории',
-        description: '	• после ремонта • после сезона • перед сдачей или продажей недвижимости'
-    },
-
-]
+// feature texts are localized via messages (services.features)
 
 export default function ServicesSection() {
+    const t = useTranslations()
     const imageUrl = "/Gan_eden_logotype_v2.png"
+
+    const features = [0,1,2,3,4,5].map(i => ({
+        name: t(`services.features.${i}.name`),
+        description: t(`services.features.${i}.description`),
+    }))
 
     return (
         <>
@@ -49,7 +30,7 @@ export default function ServicesSection() {
                     <Image
                         width={200}
                         height={80}
-                        alt="Gan Eden logotype"
+                        alt={t('nav.logoAlt')}
                         src={imageUrl}
                         className='h-full w-auto mx-auto px-12 lg:px-6 py-2'
                     />
@@ -59,17 +40,17 @@ export default function ServicesSection() {
                                 <motion.span
                                     custom={1} variants={animationLeft}
                                     className="text-base/7 font-semibold text-green-600">
-                                    Наши услуги
+                                    {t('services.heading')}
                                 </motion.span>
                                 <motion.h4
                                     custom={2} variants={animationLeft}
                                     className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                                    Услуги садовника в Ашдоде
+                                    {t('services.title')}
                                 </motion.h4>
                                 <motion.p
                                     custom={3} variants={animationLeft}
                                     className="mt-6 text-base/7 text-gray-700">
-                                    Полный спектр работ по уходу за садом — от регулярного обслуживания до комплексного озеленения.
+                                    {t('services.summary')}
                                 </motion.p>
                             </div>
                             <dl className="col-span-3 grid grid-cols-1 gap-x-8 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">

@@ -1,4 +1,7 @@
+import { useTranslations } from 'next-intl'
+
 export default function BannerSection() {
+  const t = useTranslations()
   const imageUrl = "/banner.jpg"
 
   return (
@@ -14,12 +17,10 @@ export default function BannerSection() {
           <div className="relative flex justify-center w-full mx-auto lg:mx-0">
             <div className="relative isolate overflow-hidden p-6 text-center sm:px-16">
               <p className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">
-                Садовник с большим опытом работы!
+                {t('banner.title')}
               </p>
               <p className="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-200">
-                Мы будем рады предоставить Вам профессиональный и надежный сервис во всех видах садоводческих работ.
-                Обрезка, уборка двора, посадка деревьев и многое другое!
-                Более тысячи довольных клиентов уже выбрали нас - и вы следующие!
+                {t('banner.description')} {t('banner.tagline')}
               </p>
             </div>
           </div>

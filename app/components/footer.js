@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa6";
+import { useTranslations } from 'next-intl'
+import LanguageSwitcher from "./languageSwitcher";
 
 const navigation = [
   {
@@ -14,10 +16,11 @@ const navigation = [
     icon: FaFacebook,
     style: 'size-6 hover:text-blue-700',
   },
-  
+
 ]
 
 export default function Footer() {
+  const t = useTranslations()
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
@@ -29,8 +32,11 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <p className="mt-8 text-center text-sm/6 text-gray-600 md:order-1 md:mt-0">
-          &copy; {new Date().getFullYear()} Gan&Eden. All rights reserved.
+        <div className="flex justify-center my-4 md:my-0 md:order-1">
+          <LanguageSwitcher className="mx-auto md:order-1" />
+        </div>
+        <p className="text-center text-sm/6 text-gray-600 md:order-1 md:mt-0">
+          {t('footer.copy', { year: new Date().getFullYear() })}
         </p>
       </div>
     </footer>
