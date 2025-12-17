@@ -45,7 +45,7 @@ export default function FAQSection() {
                   </span>
                 </DisclosureButton>
               </dt>
-              <DisclosurePanel as="dd" className="mt-2 pr-12">
+              <DisclosurePanel as="dd" className="mt-2 ltr:pr-12 rtl:pl-12">
                 <p className="text-base/7 text-gray-600">{t(faq.answerKey)}</p>
               </DisclosurePanel>
             </Disclosure>
